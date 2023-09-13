@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { PageInfo } from 'src/models/PageInfo';
 import { TestType } from 'src/models/TestType';
 
 @Component({
@@ -7,7 +8,8 @@ import { TestType } from 'src/models/TestType';
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent {
-  @Input() myInputData!: TestType;
+  @Input() pageInfo!: PageInfo;
+  @Input() username!: string;
   @Output() welcomeOutput = new EventEmitter<string>()
 
   handleClick(ev: Event) {
