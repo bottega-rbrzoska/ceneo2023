@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { TestType } from 'src/models/TestType';
 
 @Component({
   selector: 'app-welcome',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent {
+  @Input() myInputData!: TestType;
+  @Output() welcomeOutput = new EventEmitter<string>()
 
+  handleClick(ev: Event) {
+    console.log(ev)
+  }
 }
