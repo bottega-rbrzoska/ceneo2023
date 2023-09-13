@@ -12,7 +12,9 @@ export class WelcomeComponent {
   @Input() username!: string;
   @Output() welcomeOutput = new EventEmitter<string>()
 
-  handleClick(ev: Event) {
-    console.log(ev)
+  handleClick() {
+    this.welcomeOutput.emit(`WELCOME ${this.username.toUpperCase()}`)
   }
+
+  
 }

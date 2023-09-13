@@ -10,6 +10,8 @@ import { User } from 'src/models/User';
 })
 export class HomeComponent {
 
+  today = new Date();
+
   pageInfoData: PageInfo = {
     description: 'description123',
     title: 'Page info title123'
@@ -22,5 +24,9 @@ export class HomeComponent {
   myData: TestType = {
     name: 'test',
     num: 10
+  }
+
+  handleWelcome(msg: string) {
+    console.log(msg)
   }
 }
