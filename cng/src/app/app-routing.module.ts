@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'test', loadChildren: () => import('./test/test.module').then(m => m.TestModule) },
+  { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
   { path: '**', component: PageNotFoundComponent }
 ];
 
