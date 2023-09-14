@@ -3,24 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { ContactComponent } from './contact/contact.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { EmptyPipe } from './empty.pipe';
+import { HomeComponent } from './main/containers/home/home.component';
+import { WelcomeComponent } from './main/components/welcome/welcome.component';
+import { ContactComponent } from './main/containers/contact/contact.component';
+import { PageNotFoundComponent } from './main/containers/page-not-found/page-not-found.component';
+import { SharedModule } from './shared/shared.module';
+import { MainModule } from './main/main.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    WelcomeComponent,
-    ContactComponent,
-    PageNotFoundComponent,
-    EmptyPipe
+    AppComponent    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    MainModule
   ],
   providers: [],
   bootstrap: [AppComponent]
