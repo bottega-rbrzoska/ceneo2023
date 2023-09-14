@@ -1,6 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { User } from 'src/models/User';
 import { MULTI_CONFIG } from '../tokens/MULTI_CONFIG';
+import { TestService } from './test.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-test',
@@ -8,8 +10,10 @@ import { MULTI_CONFIG } from '../tokens/MULTI_CONFIG';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent {
-  constructor(@Inject(MULTI_CONFIG) private configs: string[]) {
-    console.log(configs)
+  testData$: Observable<{ testData: number } | null>
+  constructor(@Inject(MULTI_CONFIG) private configs: string[], private _testService: TestService) {
+    this.testData$ = this._testService.testData$;
+    this._testService.fetchData();
 
   }
   show = false;
