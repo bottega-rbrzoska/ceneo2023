@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { ConfigService } from 'src/app/core/config.service';
 import { PageInfo } from 'src/models/PageInfo';
 import { TestType } from 'src/models/TestType';
 import { User } from 'src/models/User';
@@ -9,6 +10,8 @@ import { User } from 'src/models/User';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  constructor(private configService: ConfigService){
+  }
 
   today = new Date();
 
