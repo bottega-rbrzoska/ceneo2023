@@ -7,6 +7,7 @@ import { ProductEditComponent } from './containers/product-edit/product-edit.com
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { ProductsService } from './products.service';
 
 
 
@@ -22,6 +23,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     ProductsRoutingModule,
     SharedModule
-  ]
+  ],
+  providers: [ProductsService]
 })
 export class ProductsModule { }
