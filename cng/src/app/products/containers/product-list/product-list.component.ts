@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from 'src/models/Product';
 import { ProductsService } from '../../products.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -9,10 +10,11 @@ import { ProductsService } from '../../products.service';
 })
 export class ProductListComponent {
 
-  products: Product[];
+  products$: Observable<Product[] | null>;
 
   constructor(productsService: ProductsService){
-    this.products = productsService.getProducts()
+    this.products$ = productsService.products$;
+    productsService.fetchProducts();
   }
 
 }
