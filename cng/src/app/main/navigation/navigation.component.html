@@ -5,5 +5,5 @@
     <a routerLink="/products">Products</a>
     <a routerLink="/test/rx">RxJS</a>
 
-    <app-login></app-login>
+    <app-login [isLoggedIn]="(isLoggedIn$ | async) || false" (auth)="handleAuth($event)"></app-login>
   </nav>
