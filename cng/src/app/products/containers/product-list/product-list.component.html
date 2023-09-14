@@ -1,3 +1,4 @@
-<div>
+<h3>Product List</h3>
+<div *appPermissions="'admin'">
     <app-product-item *ngFor="let product of products$ | async" [product]="product"></app-product-item>
 </div>

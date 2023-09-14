@@ -7,6 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   private isLoggedInSubj = new BehaviorSubject<boolean>(false);
   private _token: string | null = null;
+
+  userRole = 'admin';
   get token() {
     return this._token;
   }
