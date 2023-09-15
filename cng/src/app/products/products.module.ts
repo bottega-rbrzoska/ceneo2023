@@ -8,6 +8,7 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 import { ProductsRoutingModule } from './products-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ProductsService } from './products.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,7 +23,8 @@ import { ProductsService } from './products.service';
   imports: [
     CommonModule,
     ProductsRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers: [ProductsService]
 })

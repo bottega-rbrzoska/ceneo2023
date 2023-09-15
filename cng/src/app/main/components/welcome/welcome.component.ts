@@ -8,7 +8,7 @@ import { TestType } from 'src/models/TestType';
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent {
-  @Input() pageInfo!: PageInfo;
+  @Input({required: true}) pageInfo!: PageInfo;
   @Input() username!: string;
   @Output() welcomeOutput = new EventEmitter<string>()
 

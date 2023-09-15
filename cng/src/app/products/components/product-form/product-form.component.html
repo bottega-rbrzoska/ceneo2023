@@ -1,1 +1,12 @@
-<p>product-form works!</p>
+<form [formGroup]="productForm" (submit)="ratuj()">
+    <div>Name: <input formControlName="name"></div>
+    <div>Description: <textarea formControlName="description"></textarea></div>
+    <div>Price: <input formControlName="price"></div>
+    <button>Save</button>
+</form>
+<code>
+    {{productForm.get('name')?.errors | json}}
+</code>
+<code>
+    {{productForm.get('description')?.errors | json}}
+</code>

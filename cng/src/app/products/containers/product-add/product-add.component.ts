@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from 'src/models/Product';
 
 @Component({
   selector: 'app-product-add',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class ProductAddComponent {
 
+  handleSave(product: Partial<Product>){
+    console.log('Save', product)
+  }
 }

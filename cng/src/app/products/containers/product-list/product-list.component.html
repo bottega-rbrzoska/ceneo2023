@@ -1,4 +1,5 @@
 <h3>Product List</h3>
+<button routerLink="/products/add">Add new product</button>
 <div *appPermissions="'admin'">
     <app-product-item *ngFor="let product of products$ | async" [product]="product"></app-product-item>
 </div>
