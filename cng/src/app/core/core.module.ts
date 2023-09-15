@@ -5,6 +5,7 @@ import { MULTI_CONFIG } from '../tokens/MULTI_CONFIG';
 import { AuthGuardService } from './auth.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
+import { SharedModule } from '../shared/shared.module';
 
 export const initAppConfigData = (configService: ConfigService) => {
   return () => {
@@ -18,8 +19,8 @@ export const initAppConfigDataBlocking = () => {
 @NgModule({
   declarations: [],
   imports: [
-
-    CommonModule
+    CommonModule,
+    // SharedModule.forRoot()
   ],
   providers: [
     { provide: ConfigService, useClass: ConfigService }, 

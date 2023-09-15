@@ -3,7 +3,8 @@ import { User } from 'src/models/User';
 import { MULTI_CONFIG } from '../tokens/MULTI_CONFIG';
 import { TestService } from './test.service';
 import { Observable } from 'rxjs';
-import { TestAttrDirective } from '../shared/test-attr.directive';
+import { TestAttrDirective } from '../shared/directives/test-attr.directive';
+import { NotificationsService } from '../shared/notifications/notifications.service';
 
 @Component({
   selector: 'app-test',
@@ -13,10 +14,9 @@ import { TestAttrDirective } from '../shared/test-attr.directive';
 export class TestComponent {
   @ViewChild(TestAttrDirective) attrDirectiveBox!: TestAttrDirective;
   testData$: Observable<{ testData: number } | null>
-  constructor(@Inject(MULTI_CONFIG) private configs: string[], private _testService: TestService) {
+  constructor(@Inject(MULTI_CONFIG) private configs: string[], private _testService: TestService, notificationsService: NotificationsService) {
     this.testData$ = this._testService.testData$;
     this._testService.fetchData();
-
   }
   show = false;
  boxColor="red" 

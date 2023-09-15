@@ -1,0 +1,17 @@
+:host {
+    display: block;
+
+    .notification {
+        border-radius: 5;
+        color: white;
+        width: 200px;
+        min-height: 80px
+    }
+
+    .success {
+        background-color: green;
+    }
+    .error {
+        background-color: red;
+    }
+}

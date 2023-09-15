@@ -1,6 +1,6 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-import { AuthService } from '../core/auth.service';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Directive({
   selector: '[appPermissions]'
@@ -16,8 +16,7 @@ export class PermissionsDirective {
       if(isLoggedIn && this._auth.userRole === this.allowedRole) {
         this._vcr.createEmbeddedView(this._templateRef)
       }
-    })
-    
+    })    
   }
 
   ngOnDestroy() {

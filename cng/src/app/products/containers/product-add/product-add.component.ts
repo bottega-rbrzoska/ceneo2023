@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NotificationsService } from 'src/app/shared/notifications/notifications.service';
 import { Product } from 'src/models/Product';
 
 @Component({
@@ -8,7 +9,12 @@ import { Product } from 'src/models/Product';
 })
 export class ProductAddComponent {
 
+  constructor(private _nbotificationsService: NotificationsService) {}
   handleSave(product: Partial<Product>){
     console.log('Save', product)
+    this._nbotificationsService.pushNotification({
+      message: 'Saved!',
+      msgType: 'success'
+    })
   }
 }
