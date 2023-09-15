@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ApplicationRef, Component, EventEmitter, Input, NgZone, Output } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -8,4 +8,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class LoginComponent {
   @Input() isLoggedIn = false;
   @Output() auth = new EventEmitter();
+  counter = 0;
+
+  constructor(appRef: ApplicationRef, ngZone: NgZone, ) {
+    
+    ngZone.runOutsideAngular(() =>{
+      setInterval(() => {
+        this.counter++
+      },1000)
+    })
+
+  }
 }
