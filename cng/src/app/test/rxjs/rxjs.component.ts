@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, distinctUntilChanged, filter, map, of, pairwise, tap } from 'rxjs';
 
 @Component({
-  selector: 'app-rxjs',
-  templateUrl: './rxjs.component.html',
-  styleUrls: ['./rxjs.component.scss']
+    selector: 'app-rxjs',
+    templateUrl: './rxjs.component.html',
+    styleUrls: ['./rxjs.component.scss'],
+    standalone: true
 })
 export class RxjsComponent {
   // myPromise = new Promise((resolve, reject) => {

@@ -12,21 +12,19 @@ import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    WelcomeComponent,
-    ContactComponent,
-    PageNotFoundComponent,
-    NavigationComponent,
-    LoginComponent
-  ],
-  imports: [
-    CommonModule,
-    MainRoutingModule,
-    SharedModule
-  ],
-  exports: [
-    NavigationComponent
-  ]
+    imports: [
+        CommonModule,
+        MainRoutingModule,
+        SharedModule,
+        HomeComponent,
+        WelcomeComponent,
+        ContactComponent,
+        PageNotFoundComponent,
+        NavigationComponent,
+        LoginComponent
+    ],
+    exports: [
+        NavigationComponent
+    ]
 })
 export class MainModule { }

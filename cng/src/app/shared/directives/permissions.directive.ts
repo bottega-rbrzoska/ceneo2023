@@ -3,7 +3,8 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/auth.service';
 
 @Directive({
-  selector: '[appPermissions]'
+    selector: '[appPermissions]',
+    standalone: true
 })
 export class PermissionsDirective {
 

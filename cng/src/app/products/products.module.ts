@@ -13,19 +13,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [
-    ProductListComponent,
-    ProductItemComponent,
-    ProductAddComponent,
-    ProductEditComponent,
-    ProductFormComponent
-  ],
-  imports: [
-    CommonModule,
-    ProductsRoutingModule,
-    SharedModule,
-    ReactiveFormsModule
-  ],
-  providers: [ProductsService]
+    imports: [
+        CommonModule,
+        ProductsRoutingModule,
+        SharedModule,
+        ReactiveFormsModule,
+        ProductListComponent,
+        ProductItemComponent,
+        ProductAddComponent,
+        ProductEditComponent,
+        ProductFormComponent
+    ],
+    providers: [ProductsService]
 })
 export class ProductsModule { }

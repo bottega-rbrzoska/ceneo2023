@@ -13,13 +13,13 @@ import { NotificationsService } from './notifications/notifications.service';
 
 
 @NgModule({
-  declarations: [VatPipe, EmptyPipe, 
-    TestAttrDirective, TestStrDirective, PermissionsDirective, 
-    NotificationComponent, NotificationContainerComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [VatPipe, EmptyPipe, TestAttrDirective, TestStrDirective, PermissionsDirective, NotificationContainerComponent]
+    imports: [
+        CommonModule,
+        VatPipe, EmptyPipe,
+        TestAttrDirective, TestStrDirective, PermissionsDirective,
+        NotificationComponent, NotificationContainerComponent
+    ],
+    exports: [VatPipe, EmptyPipe, TestAttrDirective, TestStrDirective, PermissionsDirective, NotificationContainerComponent]
 })
 export class SharedModule { 
   // static forRoot(): ModuleWithProviders<SharedModule> {

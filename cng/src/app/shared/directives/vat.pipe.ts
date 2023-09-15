@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'vat'
+    name: 'vat',
+    standalone: true
 })
 export class VatPipe implements PipeTransform {
 

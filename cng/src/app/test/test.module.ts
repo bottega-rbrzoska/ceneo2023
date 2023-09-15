@@ -8,15 +8,13 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [
-    NewTestComponent,
-    TestComponent,
-    RxjsComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    TestRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        SharedModule,
+        TestRoutingModule,
+        NewTestComponent,
+        TestComponent,
+        RxjsComponent
+    ]
 })
 export class TestModule { }

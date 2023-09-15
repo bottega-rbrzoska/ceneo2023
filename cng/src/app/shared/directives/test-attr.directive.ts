@@ -1,8 +1,9 @@
 import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appTestAttr]',
-  exportAs: 'testAttr'
+    selector: '[appTestAttr]',
+    exportAs: 'testAttr',
+    standalone: true
 })
 export class TestAttrDirective {
 

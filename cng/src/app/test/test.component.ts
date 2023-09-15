@@ -5,11 +5,16 @@ import { TestService } from './test.service';
 import { Observable } from 'rxjs';
 import { TestAttrDirective } from '../shared/directives/test-attr.directive';
 import { NotificationsService } from '../shared/notifications/notifications.service';
+import { TestStrDirective } from '../shared/directives/test-str.directive';
+import { NewTestComponent } from './new-test/new-test.component';
+import { NgIf, NgFor, NgClass, AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss']
+    selector: 'app-test',
+    templateUrl: './test.component.html',
+    styleUrls: ['./test.component.scss'],
+    standalone: true,
+    imports: [TestAttrDirective, NgIf, NewTestComponent, NgFor, NgClass, TestStrDirective, AsyncPipe, JsonPipe]
 })
 export class TestComponent {
   @ViewChild(TestAttrDirective) attrDirectiveBox!: TestAttrDirective;

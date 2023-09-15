@@ -3,9 +3,10 @@ import { NotificationComponent } from '../notification/notification.component';
 import { NotificationsService } from '../notifications.service';
 
 @Component({
-  selector: 'app-notification-container',
-  templateUrl: './notification-container.component.html',
-  styleUrls: ['./notification-container.component.scss']
+    selector: 'app-notification-container',
+    templateUrl: './notification-container.component.html',
+    styleUrls: ['./notification-container.component.scss'],
+    standalone: true
 })
 export class NotificationContainerComponent {
  @ViewChild('notificationContainer', { read: ViewContainerRef, static: false }) vcr!: ViewContainerRef;
