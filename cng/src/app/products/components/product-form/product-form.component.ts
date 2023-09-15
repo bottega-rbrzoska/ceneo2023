@@ -19,7 +19,7 @@ export class ProductFormComponent {
         nonNullable: true,
         validators: [Validators.required,Validators.minLength(6) ]
       }),
-      description: new FormControl({ value: this.product?.description || 'init description', disabled: true}),
+      description: new FormControl({ value: this.product?.description || 'init description', disabled: true}, this.dupaValidator),
       price: new FormControl(this.product?.price || 0)
   })
 
