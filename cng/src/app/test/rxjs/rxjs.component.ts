@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { BehaviorSubject, Observable, Subject, distinctUntilChanged, filter, map, of, pairwise, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { BehaviorSubject, Observable, Subject, concatMap, debounceTime, distinctUntilChanged, exhaustMap, filter, fromEvent, map, mergeMap, of, pairwise, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs',
@@ -12,6 +13,10 @@ export class RxjsComponent {
   //   setTimeout(() => resolve('promise done'), 2000)
   // })
 
+  @ViewChild('myInput', { static: true }) input!: ElementRef<HTMLInputElement>;
+  constructor(private http: HttpClient) {
+
+  }
   myObs$ = new Observable((obs) => {
     obs.complete()
     obs.error('123')
@@ -25,17 +30,26 @@ export class RxjsComponent {
 
   ngOnInit() {
     // this.myPromise.then(v => console.log(v)).catch(e => console.error('Error in promise:', e))
-    this.myObs$.subscribe((v) => console.log(v))
-    this.myObs2$.pipe(
-      filter(v => v > 3),
-      map(v => v * 2), 
-      distinctUntilChanged(),
-      pairwise()
-    ).subscribe((v) => console.log(v));
-    this.mySubject.next('a1');
-    this.mySubject.subscribe(v => console.log(v))
+    // this.myObs$.subscribe((v) => console.log(v))
+    // this.myObs2$.pipe(
+    //   filter(v => v > 3),
+    //   map(v => v * 2), 
+    //   distinctUntilChanged(),
+    //   pairwise()
+    // ).subscribe((v) => console.log(v));
+    // this.mySubject.next('a1');
+    // this.mySubject.subscribe(v => console.log(v))
     
-    this.mySubject.next('a2');
-    this.myB$.subscribe(v => console.log(v))
+    // this.mySubject.next('a2');
+    // this.myB$.subscribe(v => console.log(v))
+
+    fromEvent(this.input.nativeElement, 'input').pipe(
+      map((v: any) => v.target.value),
+      //debounceTime(400),
+      mergeMap(v => this.http.get<any>('http://localhost:3000/test')),
+      // concatMap(v => this.http.get<any>('http://localhost:3000/test')),
+      // exhaustMap(v => this.http.get<any>('http://localhost:3000/test')),
+      // switchMap(v => this.http.get<any>('http://localhost:3000/test'))
+    ).subscribe(v => console.log(v))
   }
 }

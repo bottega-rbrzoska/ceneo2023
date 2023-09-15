@@ -13,17 +13,17 @@ export class ContactComponent {
   intervalHandler!: any;
   constructor(appRef: ApplicationRef, ngZone: NgZone,private cdr: ChangeDetectorRef ) {
     
-    ngZone.runOutsideAngular(() =>{
-      this.intervalHandler = setInterval(() => {
-        this.counter++
-        console.log(this.counter)
-        // this.cdr.detectChanges();
-      },1000);
-    })
+    // ngZone.runOutsideAngular(() =>{
+    //   this.intervalHandler = setInterval(() => {
+    //     this.counter++
+    //     console.log(this.counter)
+    //     // this.cdr.detectChanges();
+    //   },1000);
+    // })
 
   }
 
   ngOnDestroy() {
-    clearInterval(this.intervalHandler)
+    // clearInterval(this.intervalHandler)
   }
 }

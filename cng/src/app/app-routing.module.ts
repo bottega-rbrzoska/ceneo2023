@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuardService, authGuard } from './core/auth.guard';
 
 const routes: Routes = [
-  { path: 'test', canActivate: [AuthGuardService],
+  { path: 'test', canActivate: [],
   loadChildren: () => import('./test/test.module').then(m => m.TestModule) },
   { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
 ];
