@@ -1,0 +1,7 @@
+<p>Home</p>
+<div>{{ today | date : 'mediumDate' }}</div>
+<app-welcome
+  [pageInfo]="pageInfoData"
+  username="user.name"
+  (welcomeOutput)="handleWelcome($event)"
+></app-welcome>

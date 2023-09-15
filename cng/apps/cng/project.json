@@ -1,0 +1,87 @@
+{
+  "name": "cng",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss",
+      "skipTests": true
+    },
+    "@schematics/angular:service": {
+      "skipTests": true
+    }
+  },
+  "sourceRoot": "apps/cng/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/cng",
+        "index": "apps/cng/src/index.html",
+        "main": "apps/cng/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/cng/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/cng/src/favicon.ico", "apps/cng/src/assets"],
+        "styles": ["apps/cng/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "cng:build:production"
+        },
+        "development": {
+          "browserTarget": "cng:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "cng:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "polyfills": ["zone.js", "zone.js/testing"],
+        "tsConfig": "apps/cng/tsconfig.spec.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/cng/src/favicon.ico", "apps/cng/src/assets"],
+        "styles": ["apps/cng/src/styles.scss"],
+        "scripts": []
+      }
+    }
+  }
+}

@@ -1,5 +1,0 @@
-<div class="product-box">
-    <div>{{product.name}}</div>
-    <div>{{product.description}}</div>
-    <div>Price: <span [ngClass]="{red: product.price > 100}">{{product.price | vat:23 | currency:'EUR'}}</span></div>
-</div>

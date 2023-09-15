@@ -1,2 +1,0 @@
-<button *ngIf="isLoggedIn; else logoutBtn" (click)="auth.emit(false)">Logout</button>
-<ng-template #logoutBtn><button (click)="auth.emit(true)">Login</button></ng-template>
