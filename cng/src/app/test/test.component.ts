@@ -29,6 +29,8 @@ export class TestComponent {
     this.show = !this.show;
   }
 
+  
+
 
   toggleBoxByDirective() {
     this.attrDirectiveBox.toggleClass()

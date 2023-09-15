@@ -11,6 +11,13 @@
 <div>
     <div *ngFor="let user of collection; let isOdd = odd"  [ngClass]="{ red: isOdd, black: !isOdd }">{{user.name}}</div>
 </div>
-<pre>
-    {{ testData$ | async | json }}
+
+<div>
+    <div *appTestStr="let user of collection; let i = index">({{i}}){{user.name}}</div>
+</div>
+<ng-container *ngIf="testData$ | async as testData">
+    {{testData}}
+    <pre>
+    {{ testData | json }}
 </pre>
+</ng-container>
